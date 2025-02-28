@@ -12,7 +12,7 @@
     "bugs":"",
     "slug":"bx-waffle",
     "shortDescription":"The Official BoxLang Waffle Module",
-    "type":"modules",
+    "type":"boxlang-modules",
     "keywords":"waffles,breakfast",
     "private":false,
     "projectURL":"https://github.com/bdw429s/bx-waffle",
