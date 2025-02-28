@@ -1,0 +1,19 @@
+/**
+ * Embed waffle HTML
+ */
+import ortus.boxlang.runtime.components.Component;
+
+@BoxComponent
+@AllowsBody( false )
+class {
+
+	/**
+	 * This function embeds waffle HTML
+	 */
+	@output( true )
+	function invoke( required context, Struct attributes, any body, Struct executionState ){
+		new bxModules.waffle.models.WaffleService().writeWaffleEmbed();
+		return Component.DEFAULT_RETURN;
+	}
+
+}

@@ -1,0 +1,26 @@
+{
+    "name":"BoxLang Waffle Generator",
+    "version":"0.0.0",
+    "author":"Brad Wood",
+    "location":"ForgeboxStorage",
+    "homepage":"https://github.com/bdw429s/bx-waffle",
+    "documentation":"",
+    "repository":{
+        "type":"Git",
+        "URL":"https://github.com/bdw429s/bx-waffle"
+    },
+    "bugs":"",
+    "slug":"bx-waffle",
+    "shortDescription":"The Official BoxLang Waffle Module",
+    "type":"modules",
+    "keywords":"waffles,breakfast",
+    "private":false,
+    "projectURL":"https://github.com/bdw429s/bx-waffle",
+    "scripts":{
+        "onRelease":"publish",
+        "postPublish":"!git push --follow-tags"
+    },
+    "ignore":[
+        "**/.*"
+    ]
+}

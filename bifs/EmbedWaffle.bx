@@ -1,0 +1,16 @@
+/**
+ * Returns waffle embed HTML
+ */
+
+@BoxBIF
+class {
+
+	/**
+	 * This function returns the waffle embed HTML
+	 */
+	@output( true )
+	function invoke(){
+		return new bxModules.waffle.models.WaffleService().writeWaffleEmbed();
+	}
+
+}
