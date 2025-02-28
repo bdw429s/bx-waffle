@@ -8,7 +8,7 @@ class {
 	private string function getWaffleURL( Array imageTags = [] ) {
 		if( imageTags.isEmpty() ) {
 			config = BoxRuntime.getInstance().getModuleService().getModuleSettings( 'bx-waffle' );
-			imageTags = config.imageTags ?: defaultImageTags;
+			imageTags = config.imageTags ?: config.defaultImageTags;
 		}
 		tagList = imageTags.toList();
 		return 'https://www.flickr.com/services/feeds/photos_public.gne?tags=#tagList#&tagmode=all&format=json&nojsoncallback=1';
