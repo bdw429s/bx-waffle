@@ -5,17 +5,20 @@ class {
 	/**
 	 * Generate the waffle URL
 	 */
-	private string function getWaffleURL() {
-		config = BoxRuntime.getInstance().getModuleService().getModuleSettings( 'bx-waffle' );
-		tags = config.imageTags.toList();
-		return 'https://www.flickr.com/services/feeds/photos_public.gne?tags=#tags#&tagmode=all&format=json&nojsoncallback=1';
+	private string function getWaffleURL( Array imageTags = [] ) {
+		if( imageTags.isEmpty() ) {
+			config = BoxRuntime.getInstance().getModuleService().getModuleSettings( 'bx-waffle' );
+			imageTags = config.imageTags ?: defaultImageTags;
+		}
+		tagList = imageTags.toList();
+		return 'https://www.flickr.com/services/feeds/photos_public.gne?tags=#tagList#&tagmode=all&format=json&nojsoncallback=1';
 	}
 
 	/**
 	 * Get a declicious waffle image data
 	 */
-	public Struct function getWaffleImage() {
-		bx:http url=getWaffleURL() timeout=10 result="result";
+	public Struct function getWaffleImage( Array imageTags = [] ) {
+		bx:http url=getWaffleURL( imageTags ) timeout=10 result="result";
 		if( !isJSON( result.fileContent ) ) {
 			println( result );
 			throw( 'Invalid JSON returned from Flickr' );
@@ -27,17 +30,17 @@ class {
 	/**
 	 * Get waffle embed code
 	 */
-	public string function getWaffleEmbed() {
-		image = getWaffleImage();
-		return '<img src="#image.media.m#" alt="#image.title#" />';
+	public string function getWaffleEmbed( Array imageTags = [] ) {
+		image = getWaffleImage( imageTags );
+		return '<img src="#image.media.m#" title="#image.title#" />';
 	}
 
 	/**
 	 * Write the waffle embed code to buffer
 	 */
 	@output( true )
-	public void function writeWaffleEmbed() {
-		echo( getWaffleEmbed() );
+	public void function writeWaffleEmbed( Array imageTags = [] ) {
+		echo( getWaffleEmbed( imageTags ) );
 	}
 
 }

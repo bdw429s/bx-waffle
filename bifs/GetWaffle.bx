@@ -8,8 +8,8 @@ class {
 	/**
 	 * This function returns the waffle embed HTML
 	 */
-	function invoke(){
-		return new bxModules.waffle.models.WaffleService().getWaffleEmbed();
+	function invoke( Array imageTags=[] ){
+		return new bxModules.waffle.models.WaffleService().getWaffleEmbed( imageTags );
 	}
 
 }

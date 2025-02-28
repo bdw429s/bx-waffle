@@ -1,1 +1,2 @@
-new bxModules.waffle.models.WaffleService().writeWaffleEmbed()
+param attributes.imageTags="";
+new bxModules.waffle.models.WaffleService().writeWaffleEmbed( attributes.imageTags.listToArray() )

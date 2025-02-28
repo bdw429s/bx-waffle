@@ -8,7 +8,7 @@ class {
 
 	function configure() {
 		variables.settings = {
-			imageTags = [
+			defaultImageTags = [
 				"waffle",
 				"food"
 			]

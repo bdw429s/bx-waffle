@@ -9,8 +9,8 @@ class {
 	 * This function returns the waffle embed HTML
 	 */
 	@output( true )
-	function invoke(){
-		return new bxModules.waffle.models.WaffleService().writeWaffleEmbed();
+	function invoke( Array imageTags=[] ){
+		return new bxModules.waffle.models.WaffleService().writeWaffleEmbed( imageTags );
 	}
 
 }

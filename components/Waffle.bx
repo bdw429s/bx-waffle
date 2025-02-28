@@ -12,7 +12,7 @@ class {
 	 */
 	@output( true )
 	function invoke( required context, Struct attributes, any body, Struct executionState ){
-		new bxModules.waffle.models.WaffleService().writeWaffleEmbed();
+		new bxModules.waffle.models.WaffleService().writeWaffleEmbed( (attributes.imageTags ?: '').listToArray() );
 		return Component.DEFAULT_RETURN;
 	}
 
