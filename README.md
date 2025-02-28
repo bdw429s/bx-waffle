@@ -99,7 +99,7 @@ From BoxLang script:
 bx:waffle;
 ```
 
-###From CFML Tags
+From CFML Tags
 
 ```html
 <cfwaffle />
